@@ -1,0 +1,18 @@
+[caps]
+platformName = "Android"
+deviceName = "emulator-5554"
+autoGrantPermissions = true
+newCommandTimeout = 1000
+skipServerInstallation = true
+noReset = true
+skipDeviceInitialization = false
+
+automationName = "UiAutomator1"
+browserName = "Chrome"
+chromedriverExecutable = 'C:\AUTOMATION\test_ana\chrome\driver\chromedriver.exe'
+chromedriverVersion = '2.44'
+
+[appium_lib]
+server_url = "http://127.0.0.1:4723/wd/hub"
+sauce_username = ""
+sauce_access_key = ""
