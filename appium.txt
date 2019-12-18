@@ -16,3 +16,4 @@ chromedriverVersion = '2.44'
 server_url = "http://127.0.0.1:4723/wd/hub"
 sauce_username = ""
 sauce_access_key = ""
+

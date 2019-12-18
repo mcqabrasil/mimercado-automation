@@ -60,6 +60,14 @@ Capybara.configure do |config|
   end
 end
 
+Capybara.add_selector(:dt) do
+  css { |v| "*[data-testid=#{v}]" }
+end
+
+Capybara.add_selector(:accessibility_id) do
+  custom(:accessibility_id) { |locator| locator }
+end
+
 RSpec.configure do |config|
   config.expect_with :rspec do |c|
     c.syntax = :expect
