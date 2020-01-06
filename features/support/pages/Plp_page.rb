@@ -5,5 +5,5 @@ class PlpPage
   include Capybara::DSL
 
   # Buttons
-  PRODUCT_FROM_LIST = '#category .col-xs-6'
+  PRODUCT_FROM_LIST = 'productListingItem'
 end

@@ -8,7 +8,7 @@ class PDP_Assertions
 
   def assert_cart_notification_msg(text)
     if @pdp.get_cart_notification_msg == text
-      puts "The notification #{text} was displayed"
+      puts 'The notification was displayed'
     else
       expect { raise "oops" }.to raise_error('Notification was not displayed')
     end
@@ -31,4 +31,22 @@ class PDP_Assertions
   def assert_url_ison_checkout_page
     expect(page).to have_current_path("http://front.mimercado.ztech.net/checkout")
   end
+
+  def assert_quantity_error_message(content)
+    if @pdp.error_message_visible?(content)
+      puts 'Error message was displayed'
+    else
+      expect { raise "oops" }.to raise_error('Error message was not displayed or is incorrect')
+    end
+    puts "Error message content displayed: #{@pdp.error_message_visible?(content)}"
+  end
+
+  def assert_add_to_cart_btn_disabled
+    if @pdp.add_to_cart_btn_enabled?
+      expect { raise "oops" }.to raise_error('Add to Cart button was not disabled')
+    else
+      puts 'Add to Cart button was disabled'
+    end
+  end
+
 end

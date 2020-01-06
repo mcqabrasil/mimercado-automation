@@ -26,7 +26,7 @@ Capybara.configure do |config|
   if @driver == :selenium
     puts 'Driver selected is Firefox'
     Capybara.register_driver :selenium do |app|
-      caps = Selenium::WebDriver::Remote::Capabilities.new(acceptInsecureCerts: true)
+      caps = Selenium::WebDriver::Remote::Capabilities.new(acceptInsecureCerts: true, :elementScrollBehavior => 1)
       Capybara::Selenium::Driver.new(
         app,
         desired_capabilities: caps
@@ -66,6 +66,10 @@ end
 
 Capybara.add_selector(:accessibility_id) do
   custom(:accessibility_id) { |locator| locator }
+end
+
+Capybara.add_selector(:nm) do
+  css { |v| "*[name=#{v}]" }
 end
 
 RSpec.configure do |config|

@@ -14,24 +14,24 @@ class CartMethods < CartPage
   end
 
   def cart_empty?
-    has_css?('.cl-accent .ml30', :text => 'Your shopping cart is empty.', :visible => true)
+    #has_xpath?('//*[@id="viewport"]/div[2]/div/div[3]/h4')
+    has_selector?(:dt, EMPTY_CART_MSG)
   end
 
   def click_close_cart_modal
-    # find(:dt, CLOSE_CART_BTN).click 
-    find(:accessibility_id, CLOSE_CART_BTN).click 
+    find(:dt, CLOSE_CART_BTN).click 
   end
 
   def click_clear_cart_btn
-    find(:css, CLEAR_CART_BTN).click
+    find(:dt, CLEAR_CART_BTN).click
   end
 
   def click_remove_all_ok_msg
-    find(REMOVE_ALL_OK_MSG).click
+    find(:dt, REMOVE_ALL_OK_MSG).click
   end
 
   def click_remove_all_cancel_msg
-    find(REMOVE_ALL_CANCEL_MSG).click
+    find(:dt, REMOVE_ALL_CANCEL_MSG).click
   end
 
   def click_basket_button
@@ -39,7 +39,7 @@ class CartMethods < CartPage
   end
 
   def cart_modal_visible?
-    has_dt?(CART_VIEW)
+    has_css?(CART_VIEW)
   end
 
   def get_cart_product_sku(sku_code)

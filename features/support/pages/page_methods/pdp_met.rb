@@ -6,14 +6,15 @@ class PDPMethods < PDPPage
     @plp_met = PlpMethods.new
   end
 
-  def add_any_product_to_cart
-    @plp_met.click_prod_from_list(2)
+  def add_product_to_cart(index, quantity)
+    @plp_met.click_prod_from_list(index)
+    set_quantity(quantity)
     click_add_to_cart_btn
   end
 
   def click_add_to_cart_btn
     page.execute_script "window.scrollBy(0,10000)"
-    find(:css, ADD_TO_CART_BTN).click
+    find(:dt, ADD_TO_CART_BTN).click
   end
 
   def get_cart_notification_msg
@@ -21,7 +22,8 @@ class PDPMethods < PDPPage
   end
 
   def set_quantity(value)
-    find(QUANTITY_FLD).set(value)
+    fill_in QUANTITY_FLD, with: value
+    find(:nm, QUANTITY_FLD).send_keys :tab
   end
 
   def click_ok_notification
@@ -34,6 +36,19 @@ class PDPMethods < PDPPage
 
   def notification_visible?
     has_css?(NOTIFICATION_MSG_CSS, :visible => true)
+  end
+
+  def get_product_total_price
+    find(:dt, PRICE_TOTAL_LABEL).text
+  end
+
+  def error_message_visible?(content)
+    has_selector?(:dt, QTY_ABOVE_ZERO_MSG, :text => content)
+  end
+
+  def add_to_cart_btn_enabled?
+    has_button?(ADD_TO_CART_BTN, :disabled => false)
+   # has_selector?(:dt, ADD_TO_CART_BTN, :disabled => false)
   end
 
 end

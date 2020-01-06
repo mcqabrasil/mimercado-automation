@@ -6,7 +6,7 @@ class CartPage
 
   # Buttons
   BASKET_BTN = 'openMicrocart'
-  CLEAR_CART_BTN = '.clearcart-col .brdr-none'
+  CLEAR_CART_BTN = 'clearCartButton'
   CLOSE_CART_BTN = 'closeMicrocart'
 
   # Modals
@@ -15,6 +15,7 @@ class CartPage
   # Notifications
   REMOVE_ALL_OK_MSG = 'notificationAction2'
   REMOVE_ALL_CANCEL_MSG = 'notificationAction1'
+  EMPTY_CART_MSG = 'emptyShoppingCartMessage'
 
   # Products
   PRODUCT_SKU = 'productSku'
