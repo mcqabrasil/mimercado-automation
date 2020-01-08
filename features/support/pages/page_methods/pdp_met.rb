@@ -3,11 +3,11 @@ class PDPMethods < PDPPage
   include Capybara::DSL
 
   def initialize
-    @plp_met = PlpMethods.new
+    @plp = PlpMethods.new
   end
 
   def add_product_to_cart(index, quantity)
-    @plp_met.click_prod_from_list(index)
+    @plp.click_prod_from_list(index)
     set_quantity(quantity)
     click_add_to_cart_btn
   end
@@ -48,7 +48,6 @@ class PDPMethods < PDPPage
 
   def add_to_cart_btn_enabled?
     has_button?(ADD_TO_CART_BTN, :disabled => false)
-   # has_selector?(:dt, ADD_TO_CART_BTN, :disabled => false)
   end
 
 end

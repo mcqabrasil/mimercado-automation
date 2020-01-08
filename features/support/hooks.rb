@@ -6,6 +6,7 @@ Before do
   @plp_met = PlpMethods.new
   @cart_met = CartMethods.new
   @header_met = HeaderMethods.new
+  @deliver_met = DeliverabilityMethods.new
 
   visit('/')
 end

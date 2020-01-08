@@ -72,5 +72,5 @@ Then('I should an error message informing quantity must be above zero') do
   @pdp_assert.assert_quantity_error_message(msg)
 end
 Then('I should see the Add to Cart button be disabled') do
- # @pdp_assert.assert_add_to_cart_btn_disabled ----- TO BE VERIFIED
+  @pdp_assert.assert_add_to_cart_btn_disabled
 end
