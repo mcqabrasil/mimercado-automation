@@ -1,5 +1,0 @@
-[caps]
-platformName = "ios"
-deviceName ="iPhone Simulator"
-automationName = 'XCUITest'
-app = "./UICatalog.app.zip"
