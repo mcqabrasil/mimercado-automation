@@ -32,7 +32,7 @@ class HeaderMethods < HeaderPage
   end
 
   def click_menu
-    find(:dt, MENU_BTN).click_menu
+    find(:dt, MENU_BTN).click
   end
 
   def close_modal

@@ -1,12 +1,15 @@
 require_relative '../app/page methods/cart_met'
 require_relative '../app/page methods/home_met'
 require_relative '../app/page methods/header_met'
+require_relative '../app/page methods/mega-menu_met'
 require_relative '../app/assertions/cart_assert'
 require_relative '../app/assertions/header_assert'
 require_relative '../app/assertions/footer_assert'
 require_relative '../app/assertions/pdp_assert'
 require_relative '../app/assertions/plp_assert'
 require_relative '../app/assertions/home_assert'
+require_relative '../app/assertions/mega-menu_assert'
+
 
 describe 'test' do
   before(:all) do
@@ -20,6 +23,8 @@ describe 'test' do
     @pdp_met = PDPMethods.new
     @plp_as = PLPAssertions.new
     @home_as = HomeAssertions.new
+    @mm_met = MegaMenuMethods.new
+    @mm_as = MegaMenuAssertions.new
 
     visit '/'
   end
@@ -61,7 +66,7 @@ describe 'test' do
       @plp_as.assert_plp_url
     end
 
-    it "'Ordena ahora' shoul take user to the PLP", :SMOKE_01_step7 do
+    it "'Ordena ahora' should take user to the PLP", :SMOKE_01_step7 do
       @home_met.click_order_now_btn
       @plp_as.assert_plp_url
     end
@@ -83,12 +88,19 @@ describe 'test' do
 
     it 'Main menu when clicked should open the Menu modal', :SMOKE_01_step11 do
       @header_met.click_menu
+      @mm_as.assert_menu_opened
+      @header_met.close_modal
     end
 
     it 'Click on X button from Menu modal should close the modal', :SMOKE_01_step12 do
+      @header_met.click_menu
+      @header_met.close_modal
     end
 
     it 'Navigate through the Menu categories should take user to the given Menu sub-categories section', :SMOKE_01_step13 do
+      @header_met.click_menu
+      @mm_met.click_category_menu(02)
+
     end
 
     it 'Click on the sub-categories should take user to the given category page', :SMOKE_01_step14 do

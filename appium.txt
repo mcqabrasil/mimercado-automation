@@ -9,7 +9,7 @@ skipDeviceInitialization = false
 
 automationName = "UiAutomator1"
 browserName = "Chrome"
-chromedriverExecutable = 'C:\AUTOMATION\mimercado\chrome\driver\chromedriver.exe'
+chromedriverExecutable = 'C:\AUTOMATION\mimercado-automation\chrome\driver\chromedriver.exe'
 chromedriverVersion = '2.44'
 
 [appium_lib]
