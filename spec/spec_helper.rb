@@ -56,7 +56,7 @@ Capybara.configure do |config|
     end
     Capybara.default_driver = :appium
     config.app_host = 'https://storefront-qa.mimercado.com'
-    config.default_max_wait_time = 40
+    config.default_max_wait_time = 15
   else
     config.default_driver = @driver
     config.javascript_driver = @driver

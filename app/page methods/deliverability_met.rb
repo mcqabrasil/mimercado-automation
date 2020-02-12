@@ -4,7 +4,7 @@ require_relative '../pages/deliverability_page'
 class DeliverabilityMethods < DeliverabilityPage
   include Capybara::DSL
 
-  def close_delivery_zone_modal
+  def close_delivery_modal
     find(:dt, CLOSE_DELIVERY_ZONE_BTN).click
   end
 
@@ -19,5 +19,9 @@ class DeliverabilityMethods < DeliverabilityPage
     find(:nm, ADDRESS_FLD).send_keys :arrow_down
     sleep 2
     find(:nm, ADDRESS_FLD).send_keys :enter
+  end
+
+  def is_deliverability_open?
+    has_selector?(:dt, DELIVERABILITY_MD)
   end
 end

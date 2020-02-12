@@ -51,4 +51,36 @@ class PDPAssertions
     expect(page).to have_current_path("#{url}")
   end
 
+  def assert_product_name_presence
+    if @pdp.get_product_name != " "
+      puts "Product Name is: #{@pdp.get_product_name}"
+    else
+      expect { raise "oops" }.to raise_error("No product name: #{@pdp.get_product_name}")
+    end
+  end
+
+  def assert_product_price_presence
+    if @pdp.get_product_price != " "
+      puts "Product price is: #{@pdp.get_product_price}"
+    else
+      expect { raise "oops" }.to raise_error("No product price: #{@pdp.get_product_price}")
+    end
+  end
+
+  def assert_prod_start_qty
+    if @pdp.get_quantity_value == 1
+      puts 'Quantity is equeal to 1'
+    else
+      expect { raise "oops" }.to raise_error('Quantity different than 1 or not set')
+    end
+    puts "Quantity displayed: #{@pdp.get_quantity_value}"
+  end
+
+  def assert_similiar_prod_presence
+    if @pdp.is_similar_prod_present?
+      puts "Similar products are present"
+    else
+      expect { raise "oops" }.to raise_error('No similar product present')
+    end
+  end
 end

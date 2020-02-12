@@ -9,17 +9,7 @@ class CartMethods < CartPage
     @pdp = PDPMethods.new
   end
 
-  def clean_cart
-    click_basket_button
-    if cart_empty?
-      puts 'Cart is already empty'
-    else
-      click_clear_cart_btn
-      click_remove_all_ok_msg
-    end
-    click_close_cart_modal
-  end
-
+ 
   def cart_empty?
     has_selector?(:dt, EMPTY_CART_MSG)
   end
@@ -42,10 +32,6 @@ class CartMethods < CartPage
 
   def click_remove_all_cancel_msg
     find(:dt, REMOVE_ALL_CANCEL_MSG).click
-  end
-
-  def click_basket_button
-    find(:dt, BASKET_BTN).click
   end
 
   def cart_modal_visible?
@@ -155,6 +141,18 @@ class CartMethods < CartPage
   end
 
   def click_checkout_btn
-    find(:dt, GO_TO_CHECKOUT_BTN).click
+    find(:dt, CHECKOUT_BTN).click
+  end
+
+  def has_product_on_cart?
+    has_selector?(:dt, PRODUCT_LINK)
+  end
+
+  def click_place_order
+    find(:dt, PLACE_ORDER_BTN).click
+  end
+
+  def close_order_placed_modal
+    find(:xpath, CLOSE_ORDER_REVIEW).click
   end
 end

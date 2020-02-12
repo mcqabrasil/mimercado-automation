@@ -12,4 +12,5 @@ class PlpMethods < PlpPage
     visit(url)
   end
 
+  
 end

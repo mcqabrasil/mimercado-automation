@@ -8,6 +8,7 @@ class MegaMenuPage
 
   # LINKS
   CATEGORY_LINK = 'categoryButton'
-  
+  MY_ACCOUNT_LINK = 'sideMenuClose'
+
     
 end

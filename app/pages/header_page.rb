@@ -9,14 +9,18 @@ class HeaderPage
   HEADER_LOGO = '#viewport .header-logo' # CSS
 
   # LABELS / LINK
-  CART_PRICE = '//*[@id="viewport"]/div[1]/header/div[1]/div/div[4]/div/div/span' # PROVISORIO
+  CART_PRICE = '//*[@id="viewport"]/div[1]/header/div[1]/div/div[3]/div/div/span' # PROVISORIO
 
   # BUTTONS
   CART_BTN = 'openMicrocart'
   MENU_BTN = 'menuButton'
   CLOSE_MODAL_BTN = 'closeMicrocart'
 
+  # MODALS
+  CART_MODAL = 'microcart'
+
   # FIELDS
-  SEARCH_FLD = 'openSearchPanel'
+  SEARCH_HEADER = 'openSearchPanel'
+  SEARCH_FLD = 'search'
 
 end

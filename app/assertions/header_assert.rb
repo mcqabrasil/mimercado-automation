@@ -79,4 +79,12 @@ class HeaderAssertions
     end
   end
 
+  def assert_cart_modal_opened
+    if @header.is_cart_opened?
+      puts "Cart modal was opened"
+    else
+      expect { raise "oops"}.to raise_error('Cart modal is not visible')
+    end
+  end
+
 end

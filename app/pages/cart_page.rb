@@ -3,7 +3,6 @@ class CartPage
   include Capybara::DSL
 
   # Buttons
-  BASKET_BTN = 'openMicrocart'
   CLEAR_CART_BTN = 'clearCartButton'
   CLOSE_CART_BTN = 'closeMicrocart'
   APPLY_DISCOUNT_CODE_BTN = 'addDiscountSection'
@@ -11,10 +10,12 @@ class CartPage
   ADD_DISCOUNT_CODE_BTN = 'addDiscountSection'
   REMOVE_PRODUCT = 'removeProduct-'
   CLEAR_COUPON = 'clearCouponButton'
-  GO_TO_CHECKOUT_BTN = 'goToCheckoutButton'
-
+  CHECKOUT_BTN = 'goToCheckoutButton'
+  PLACE_ORDER_BTN = 'orderReviewSubmit'
+  
   # Modals
   CART_VIEW = 'microcart'
+  CLOSE_ORDER_REVIEW = '//*[@id="viewport"]/div[1]/header/div/div/div/div/a/svg' # TEMPORARY
 
   # Notifications
   OK_MSG = 'notificationAction2'
@@ -42,4 +43,5 @@ class CartPage
 
   # Links
   RETURN_TO_SHOPPING_LINK = 'backShopping'
+  PRODUCT_LINK = 'productLink'
 end

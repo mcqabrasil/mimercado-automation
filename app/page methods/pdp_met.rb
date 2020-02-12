@@ -2,7 +2,6 @@
 require_relative '../pages/pdp_page'
 require_relative 'plp_met'
 
-
 class PDPMethods < PDPPage
   include Capybara::DSL
 
@@ -31,6 +30,10 @@ class PDPMethods < PDPPage
     find(:nm, QUANTITY_FLD).send_keys :tab
   end
 
+  def get_quantity_value
+    find(:nm, QUANTITY_FLD).value
+  end
+
   def click_ok_notification
     find(:css, OK_MSG).click
   end
@@ -44,7 +47,7 @@ class PDPMethods < PDPPage
   end
 
   def get_product_total_price
-    find(:dt, PRICE_TOTAL_LABEL).text
+    find(:dt, PRICE_TOTAL_LB).text
   end
 
   def error_message_visible?(content)
@@ -52,10 +55,30 @@ class PDPMethods < PDPPage
   end
 
   def add_to_cart_btn_enabled?
-    has_button?(ADD_TO_CART_BTN, :disabled => false)
+    has_selector?(:dt, ADD_TO_CART_BTN, disabled: false)
   end
 
   def pdp_div_exist?
     has_css?(PDP_DIV)
   end
+
+  def get_product_name
+    find(:dt, PRODUCT_NAME_LB).text
+  end
+
+  def get_product_price 
+    find(:dt, PRODUCT_PRICE_LB).text
+  end
+
+  def goto_specifc_pdp(url)
+    visit("#{url}")
+  end
+
+  def is_similar_prod_present?
+    within(SIMILAR_PROD_DIV) do
+      has_selector?(:dt, PRODUCT_LINK)
+    end
+  end
+
+  
 end

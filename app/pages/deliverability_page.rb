@@ -10,5 +10,9 @@ class DeliverabilityPage
 
   # Fields
   ADDRESS_FLD = 'gmap-autocomplete'
+
+  # Modal
+  DELIVERABILITY_MD = 'sidebar'
+
 end
   

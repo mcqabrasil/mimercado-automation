@@ -3,6 +3,10 @@ require_relative '../pages/home_page'
 class HomeMethods < HomePage
   include Capybara::DSL
 
+  def goto_home
+    visit "https://storefront-qa.mimercado.com/"
+  end
+
   def click_product_link(index)
     page.execute_script "window.scrollBy(0,10000)"
     all(:css, PRODUCT_LINK)[index].click
