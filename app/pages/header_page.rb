@@ -21,6 +21,6 @@ class HeaderPage
 
   # FIELDS
   SEARCH_HEADER = 'openSearchPanel'
-  SEARCH_FLD = 'search'
+  SEARCH_FLD = 'search' # id
 
 end

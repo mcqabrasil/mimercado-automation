@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 require_relative '../page methods/footer_met'
 
 class FooterAssertions
@@ -8,27 +10,21 @@ class FooterAssertions
     @foo = FooterMethods.new
   end
 
-  def assert_footer_visible
+  def assert_content_visible
+    content = "MiMercado\n© 2020 Derechos Reservados.\nPreguntas Frecuentes\nAviso de privacidad"
     if @foo.footer_visible?
-      puts 'Footer div is present'
+      expect(@foo.get_content).to include(content)
     else
-      expect { raise "oops" }.to raise_error('Footer div is not present')
+      expect { raise 'oops' }.to raise_error('One or more content is not present')
     end
+    puts @foo.get_content.to_s
   end
 
   def assert_logo_visible
     if @foo.logo_visible?
       puts 'Logo is present'
     else
-      expect { raise "oops" }.to raise_error('Logo is not present')
-    end
-  end
-
-  def assert_content_visible
-    if @foo.content_visible?
-      puts "Content is present: "
-    else
-      expect { raise "oops" }.to raise_error('Content is not present')
+      expect { raise 'oops' }.to raise_error('Logo is not present')
     end
   end
 
@@ -36,9 +32,12 @@ class FooterAssertions
     if @foo.privacy_link_visible?
       puts 'Privacy link is present'
     else
-      expect { raise "oops" }.to raise_error('Privacy is not present')
+      expect { raise 'oops' }.to raise_error('Privacy is not present')
     end
   end
 
-
+  def assert_faq_url
+    url = "https://storefront-qa.mimercado.com/faq"
+    expect(page).to have_current_path("#{url}")
+  end
 end

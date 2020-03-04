@@ -4,4 +4,10 @@ class PlpPage
 
   # Buttons
   PRODUCT_FROM_LIST = 'productLink'
+
+  # Labels
+  PRODUCT_TITLE_LBL = 'productTileName'
+
+  # LIST
+  PRODUCT_LIST = 'productListingItem'
 end

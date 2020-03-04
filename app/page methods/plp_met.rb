@@ -12,5 +12,16 @@ class PlpMethods < PlpPage
     visit(url)
   end
 
-  
+  def get_products_name(index)
+    name = all(:dt, PRODUCT_TITLE_LBL)
+    if index < name.size
+      return name[index].text
+    end
+    return nil
+  end
+
+  def was_product_listed?
+    has_selector?(:dt, PRODUCT_LIST)
+  end
+
 end

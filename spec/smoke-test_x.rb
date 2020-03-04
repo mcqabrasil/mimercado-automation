@@ -14,7 +14,7 @@ require_relative '../app/assertions/home_assert'
 require_relative '../app/assertions/mega-menu_assert'
 require_relative '../app/assertions/deliverability_assert'
 
-describe 'test' do
+describe 'Test' do
   before(:all) do
     # @cart = CartMethods.new
     @cart_as = CartAssertions.new

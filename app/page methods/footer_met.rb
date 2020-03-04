@@ -28,4 +28,9 @@ class FooterMethods < FooterPage
     page.execute_script "window.scrollBy(0,10000)"
     has_selector?(:dt, PRIVACITY_LINK)
   end
+
+  def click_faq_link
+    page.execute_script "window.scrollBy(0,10000)"
+    find(:dt, FAQ_LINK).click
+  end
 end

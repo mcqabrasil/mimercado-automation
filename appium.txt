@@ -11,6 +11,8 @@ automationName = "UiAutomator1"
 browserName = "Chrome"
 chromedriverExecutable = 'C:\AUTOMATION\mimercado-automation\chrome\driver\chromedriver.exe'
 chromedriverVersion = '2.44'
+chromedriverArgs = ["--lang=es", "--disable-features=TranslateUI", "--disable-translate", "--disable-infobars"]
+chromeOptions = {args = ['--lang=es', '--disable-features=TranslateUI', '--disable-translate', '--disable-infobars']}
 
 [appium_lib]
 server_url = "http://127.0.0.1:4723/wd/hub"

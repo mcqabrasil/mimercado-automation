@@ -29,7 +29,7 @@ class HeaderMethods < HeaderPage
 
   def fill_search(text)
     fill_in SEARCH_FLD, with: text
-    find(SEARCH_FLD).send_keys :enter
+    find_by_id(SEARCH_FLD).send_keys :enter
   end
 
   def open_search_modal
