@@ -40,4 +40,20 @@ class FooterAssertions
     url = "https://storefront-qa.mimercado.com/faq"
     expect(page).to have_current_path("#{url}")
   end
+  
+  def assert_tc_url_path
+    url = "https://storefront-qa.mimercado.com/terms-and-conditions"
+    expect(page).to have_current_path("#{url}")
+  end
+
+  def assert_returns_policy_url_path
+    url = "https://storefront-qa.mimercado.com/return-policy"
+    expect(page).to have_current_path("#{url}")
+  end
+
+  def assert_privacy_url_path
+    url = "https://storefront-qa.mimercado.com/privacy-policy"
+    expect(page).to have_current_path("#{url}")
+  end
+  
 end

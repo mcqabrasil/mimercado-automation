@@ -9,6 +9,10 @@ class PDPMethods < PDPPage
     @plp = PlpMethods.new
   end
 
+  def goto_url_pdp(url)
+    visit("#{url}")
+  end
+
   def add_product_to_cart(quantity, url) # PROVISORIO
     visit('/') # ------ TO BE CHECKED LATER ----------------
     @plp.goto_pdp(url)
@@ -25,12 +29,18 @@ class PDPMethods < PDPPage
     find(:dt, NOTIFICATION_MSG).text
   end
 
+  def notification_displayed?
+    has_selector?(:dt, NOTIFICATION_MSG)
+  end
+
   def set_quantity(value)
+    page.execute_script "window.scrollBy(0,10000)"
     fill_in QUANTITY_FLD, with: value
     find(:nm, QUANTITY_FLD).send_keys :tab
   end
 
   def get_quantity_value
+    page.execute_script "window.scrollBy(0,10000)"
     find(:nm, QUANTITY_FLD).value
   end
 
@@ -70,15 +80,18 @@ class PDPMethods < PDPPage
     find(:dt, PRODUCT_PRICE_LB).text
   end
 
+  def get_sku
+    find(:ip, 'sku').text.delete('SKU: ')
+  end
+
   def goto_specifc_pdp(url)
     visit("#{url}")
   end
 
   def is_similar_prod_present?
     within(SIMILAR_PROD_DIV) do
-      has_selector?(:dt, PRODUCT_LINK)
+      has_selector?(:dt, PRODUCT_LK)
     end
   end
-
-  
+ 
 end

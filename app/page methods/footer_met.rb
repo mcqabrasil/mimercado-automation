@@ -33,4 +33,19 @@ class FooterMethods < FooterPage
     page.execute_script "window.scrollBy(0,10000)"
     find(:dt, FAQ_LINK).click
   end
+
+  def click_returns_policy_link
+    page.execute_script "window.scrollBy(0,10000)"
+    find(:dt, RETURN_POLICY_LINK).click
+  end
+
+  def click_tc_link
+    page.execute_script "window.scrollBy(0,10000)"
+    find(:dt, TERMS_CONDITIONS_LINK).click
+  end
+  
+  def click_privacy_link
+    page.execute_script "window.scrollBy(0,10000)"
+    find(:dt, PRIVACY_LINK).click
+  end
 end

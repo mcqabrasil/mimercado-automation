@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 # Class to get the elements content
 class FooterPage
   include Capybara::DSL
@@ -10,8 +12,8 @@ class FooterPage
   FOOTER_CONTENT = 'bottomLinks'
 
   # LINKS
-  PRIVACITY_LINK = '//*[@id="viewport"]/footer/div[1]/ul/li[3]/a' # PROVISORIO
+  RETURN_POLICY_LINK = 'retPolicyLink'
+  TERMS_CONDITIONS_LINK = 'tcLink'
+  PRIVACY_LINK = 'privacyLink'
   FAQ_LINK = 'faqLink'
-
-
 end

@@ -38,8 +38,13 @@ class CartMethods < CartPage
     has_css?(CART_VIEW)
   end
 
-  def get_cart_product_sku(sku_code)
-    find(:dt, PRODUCT_SKU).text
+  def get_cart_product_sku(index)
+    if index < all(:dt, PRODUCT_SKU_LBL).size
+      return all(:dt, PRODUCT_SKU_LBL)[index].text
+    end
+    return nil
+
+    # all(:dt, PRODUCT_SKU_LBL).text
   end
 
   def get_discount_code_total
@@ -153,6 +158,10 @@ class CartMethods < CartPage
   end
 
   def close_order_placed_modal
-    find(:xpath, CLOSE_ORDER_REVIEW).click
+    find(:dt, CLOSE_ORDER_REVIEW).click
+  end
+
+  def get_total_products
+    all(:dt, PRODUCT_LINK).size
   end
 end

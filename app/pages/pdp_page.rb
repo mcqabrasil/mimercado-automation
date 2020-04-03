@@ -10,21 +10,19 @@ class PDPPage
   # Notifications
   NOTIFICATION_MSG = 'notificationMessage'
   NOTIFICATION_MSG_CSS = '#product .message'
-
-  # Fields
-  QUANTITY_FLD = 'quantity'
-
-  # Notifications
   OK_MSG = '#notificationAction1'
   PROCEED_TO_CHECKOUT_MSG = '#notificationAction2'
   QTY_ABOVE_ZERO_MSG = 'errorMessage'
 
-  # DIV
+  # Fields
+  QUANTITY_FLD = 'quantity'
+
+  # Divs
   PDP_DIV = 'product'
   SIMILAR_PROD_DIV = 'productListing'
 
   # Label
-  PRICE_TOTAL_LB = 'pdpProductPrice' 
+  PRICE_TOTAL_LB = 'pdpProductPrice'
   PRODUCT_NAME_LB = 'productName'
   PRODUCT_PRICE_LB = 'pdpProductPrice'
   ST_VL_PRICE_LB = '//*[@id="product"]/section[3]/div/div[2]/div[2]/ul/li[1]/p/span[2]' # temporary
@@ -39,5 +37,5 @@ class PDPPage
   FRT_VL_PRICE_LT = 'tierPrice-3'
 
   # Link
-  PRODUCT_LINK = 'productLink'
+  PRODUCT_LK = 'productLink'
 end

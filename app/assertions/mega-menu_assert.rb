@@ -30,10 +30,8 @@ class MegaMenuAssertions
     index = 0
     until @mm.get_all_category_menu_title(index).nil?
       puts "index: #{index}"
-
       title = @mm.get_all_category_menu_title(index)
       puts "menu title> #{title}"
-
       @mm.click_category_menu(index)
       puts "sub title: #{@mm.get_l1_title}"
 
@@ -42,7 +40,6 @@ class MegaMenuAssertions
       else
         expect { raise "oops" }.to raise_error('Main category takes to incorrect L1 category')
       end
-
       @mm.click_back_menu
       index += 1
     end

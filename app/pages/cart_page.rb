@@ -15,16 +15,14 @@ class CartPage
   
   # Modals
   CART_VIEW = 'microcart'
-  CLOSE_ORDER_REVIEW = '//*[@id="viewport"]/div[1]/header/div/div/div/div/a/svg' # TEMPORARY
+  CLOSE_ORDER_REVIEW = 'closeCheckout' # TEMPORARY
+
 
   # Notifications
   OK_MSG = 'notificationAction2'
   REMOVE_ALL_CANCEL_MSG = 'notificationAction1'
   EMPTY_CART_MSG = 'emptyShoppingCartMessage'
   INVALID_COUPOM_MSG = 'notificationMessage'
-
-  # Products
-  PRODUCT_SKU = 'productSku'
 
   # Divs
   DISCOUNT_APPLIED_DIV = 'appliedCouponMessage'
@@ -36,6 +34,7 @@ class CartPage
   PRODUCT_PRICE_LBL = 'regularPrice'
   SUBTOTAL_PRICE_LBL = 'subtotal'
   TOTAL_SHIPPING_LBL = 'shipping'
+  PRODUCT_SKU_LBL = 'productSku'
 
   # Field
   DISCOUNT_CODE_FLD = 'couponinput' # NAME

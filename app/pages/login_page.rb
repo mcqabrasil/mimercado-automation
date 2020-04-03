@@ -18,6 +18,8 @@ class LoginPage
   FIFITH_CODE_FLD = 'code-4' # name
   SIXTH_CODE_FLD = 'code-5' # name
 
+  SMS_CODE_FLD = '.otp-number-input' # class
   # Buttons
   SUBMIT = 'loginSubmit'
+  LOGOUT_BTN = 'sideMenuLogout'
 end

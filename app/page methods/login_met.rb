@@ -17,11 +17,15 @@ class LoginMethods < LoginPage
   end
 
   def fill_sms_code
-    fill_in FIRST_CODE_FLD, with: 0
-    fill_in SECOND_CODE_FLD, with: 0
-    fill_in THIRD_CODE_FLD, with: 0
-    fill_in FOURTH_CODE_FLD, with: 0
-    fill_in FIFITH_CODE_FLD, with: 0
-    fill_in SIXTH_CODE_FLD, with: 0
+    all(:css, SMS_CODE_FLD)[0].set(0)
+    all(:css, SMS_CODE_FLD)[1].set(0)
+    all(:css, SMS_CODE_FLD)[2].set(0)
+    all(:css, SMS_CODE_FLD)[3].set(0)
+    all(:css, SMS_CODE_FLD)[4].set(0)
+    all(:css, SMS_CODE_FLD)[5].set(1)
+  end
+
+  def click_logoff
+    find(:dt, LOGOUT_BTN).click
   end
 end

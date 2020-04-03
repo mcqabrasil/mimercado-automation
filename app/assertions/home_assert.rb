@@ -10,10 +10,6 @@ class HomeAssertions
     @home = HomeMethods.new
   end
 
-  def assert_pdf_file
-    expect(page).to have_current_path('https://storefront-qa.mimercado.com/assets/files/MiMercado_privacy.pdf')
-  end
-
   def assert_scroll_down
     if @home.footer_visible?
       puts 'Scroll down successfully'

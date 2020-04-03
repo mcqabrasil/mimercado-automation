@@ -7,7 +7,7 @@ class HomePage
   PRODUCT_HREF_LINK = '.product-item-photo'.freeze # CLASS
   SEE_ALL_PROD_LINK = 'home-see-all'
   CATEGORY_URL_LINK = '.category-url' # CLASS
-  TERMS_CONDITIONS_LINK = '//*[@id="viewport"]/footer/div[1]/ul/li[3]/a'.freeze # XPATH
+  TERMS_CONDITIONS_LINK = 'tcLink'
 
   # BUTTON
   ORDER_TODAY_BTN = 'home-placeorder'
