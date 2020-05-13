@@ -59,7 +59,7 @@ RSpec.configure do |config|
   config.include Capybara::DSL
 
   Capybara.configure do |config|
-    config.app_host = 'https://storefront-qa.mimercado.com'
+    config.app_host = 'https://storefront-azure.mimercado.com'
   end
 
 @browser = ENV['BROWSER']
@@ -86,12 +86,12 @@ Capybara.configure do |config|
       Appium::Capybara::Driver.new app, all_options
     end
     Capybara.default_driver = :appium
-    config.app_host = 'https://storefront-vsf-upd.mimercado.com'
+    config.app_host = 'https://storefront-azure.mimercado.com'
     config.default_max_wait_time = 40
   else
     config.default_driver = @driver
     config.javascript_driver = @driver
-    config.app_host = 'https://storefront-qa.mimercado.com'
+    config.app_host = 'https://storefront-azure.mimercado.com'
     config.default_max_wait_time = 40
   end
 end

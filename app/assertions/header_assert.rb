@@ -24,59 +24,11 @@ class HeaderAssertions
 
   def assert_price_present_basket
     if @header.get_basket_total_price != '0.00'
-      puts "Total price dispayed in basket: #{@header.get_basket_total_price.delete('$')}"
+      puts "Total price displayed in basket: #{@header.get_basket_total_price.delete('$')}"
     else
       expect { raise "oops" }.to raise_error('Basket price is empty')
     end
     puts "Total price dispayed in basket: #{@header.get_basket_total_price}"
-  end
-
-  def assert_header_visible
-    if @header.header_visible?
-      puts 'Header is visible'
-    else
-      expect { raise "oops" }.to raise_error('Header not visible as expected')
-    end
-  end
-
-  def assert_logo_visible
-    if @header.logo_visible?
-      puts 'Header logo is visible'
-    else
-      expect { raise "oops" }.to raise_error('Logo is not visible')
-    end
-  end
-
-  def assert_cart_price_visible
-    if @header.cart_price_visible?
-      puts "Cart price value is: #{@header.get_basket_total_price}"
-    else
-      expect { raise "oops" }.to raise_error('Cart price is not visible')
-    end
-  end
-
-  def assert_cart_icon_visible
-    if @header.cart_icon_visible?
-      puts 'Cart icon is visible'
-    else
-      expect { raise "oops" }.to raise_error('Cart icon is not visible')
-    end
-  end
-
-  def assert_search_visible
-    if @header.search_visible?
-      puts 'Search field is visible'
-    else
-      expect { raise "oops" }.to raise_error('Search field is not visible')
-    end
-  end
-
-  def assert_menu_btn_visible
-    if @header.menu_btn_visible?
-      puts 'Menu button field is visible'
-    else
-      expect { raise "oops" }.to raise_error('Menu button is not visible')
-    end
   end
 
   def assert_cart_modal_opened
@@ -95,4 +47,22 @@ class HeaderAssertions
     end
   end
 
+  def assert_header_compoments_visible
+    puts "Header visibility: #{@header.header_visible?}"
+    puts "Logo visibility: #{@header.logo_visible?}" 
+    puts "Price label visibility: #{@header.cart_price_visible?}" 
+    puts "Cart visibility: #{@header.cart_icon_visible?}" 
+    puts "Search visibility: #{@header.search_visible?}" 
+    puts "Mega-menu button visibility: #{@header.menu_btn_visible?}"
+    if @header.header_visible? &&
+       @header.logo_visible? &&
+       @header.cart_price_visible? &&
+       @header.cart_icon_visible? &&
+       @header.search_visible? &&
+       @header.menu_btn_visible?
+      puts "All header components are visible"
+    else
+      expect { raise "oops"}.to raise_error('There are components in Header, not visible')
+    end
+  end
 end

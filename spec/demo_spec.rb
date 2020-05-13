@@ -10,7 +10,7 @@ describe 'Demo Test' do
 
     visit '/'
     @home.click_close_cookies
-  #  @utils.login(48991200044)
+    @utils.login(48991200113)
    end
 
   after(:each) do
@@ -20,6 +20,7 @@ describe 'Demo Test' do
   after(:all) do
   #  page.instance_variable_set(:@touched, true)
   #  page.reset!
+  @utils.clear_cart
   end
 
   context 'Demo-basic workflow', :demo do

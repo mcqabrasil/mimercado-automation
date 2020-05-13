@@ -13,6 +13,7 @@ class HomePage
   ORDER_TODAY_BTN = 'home-placeorder'
   ORDER_NOW_BTN = 'home-category-menu'
   CLOSE_COOKIES_BTN = 'closeCookieButton'
+  CLOSE_POPUP_BTN = 'closeModalButton'
 
 end
 

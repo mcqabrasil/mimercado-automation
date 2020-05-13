@@ -5,47 +5,53 @@ class FooterMethods < FooterPage
   include Capybara::DSL
 
   def footer_visible?
-    page.execute_script "window.scrollBy(0,10000)"
     has_xpath?(FOOTER_DIV)
   end
-
+ 
   def logo_visible?
-    page.execute_script "window.scrollBy(0,10000)"
-    has_xpath?(FOOTER_LOGO)
+    within(:xpath, '//*[@id="viewport"]/footer') do
+      has_xpath?(FOOTER_LOGO)
+    end
   end
 
   def content_visible?
-    page.execute_script "window.scrollBy(0,10000)"
     has_selector?(:dt, FOOTER_CONTENT)
   end
 
   def get_content
-    page.execute_script "window.scrollBy(0,10000)"
     find(:dt, FOOTER_CONTENT).text
   end
 
-  def privacy_link_visible?
-    page.execute_script "window.scrollBy(0,10000)"
-    has_selector?(:dt, PRIVACITY_LINK)
-  end
-
   def click_faq_link
-    page.execute_script "window.scrollBy(0,10000)"
     find(:dt, FAQ_LINK).click
   end
 
   def click_returns_policy_link
-    page.execute_script "window.scrollBy(0,10000)"
     find(:dt, RETURN_POLICY_LINK).click
   end
 
   def click_tc_link
-    page.execute_script "window.scrollBy(0,10000)"
     find(:dt, TERMS_CONDITIONS_LINK).click
   end
   
   def click_privacy_link
-    page.execute_script "window.scrollBy(0,10000)"
     find(:dt, PRIVACY_LINK).click
+  end
+
+  # Links footer visibility
+  def privacy_link_visible?
+    has_selector?(:dt, PRIVACY_LINK)
+  end
+
+  def faq_link_visible?
+    has_selector?(:dt, FAQ_LINK)
+  end
+
+  def return_policy_link_visible?
+    has_selector?(:dt, RETURN_POLICY_LINK)
+  end
+
+  def tc_link_visible?
+    has_selector?(:dt, TERMS_CONDITIONS_LINK)
   end
 end

@@ -43,7 +43,7 @@ class Utils
     if @cart_met.cart_empty?
       puts @cart_met.cart_empty?
       puts 'Cart is empty'
-      sleep 5
+      @cart_met.click_close_cart_modal
     else
       @cart_met.click_clear_cart_btn
       @cart_met.click_ok_msg
@@ -116,26 +116,38 @@ class Utils
       end
     end
 
-    puts index
-    puts cur_length
+   # puts index
+   # puts cur_length
     #puts "b"
     page.execute_script(scroll_index_script)
   end
 
   def add_hundred_prod_to_cart
     index = 0
-    100.times do
+    count = 0
+    #10.times do
+    while count <= 10 do
       # @plp_met.goto_plp
-      visit("https://storefront-qa.mimercado.com/hogar-y-limpieza/hogar-y-limpieza-66")
+      visit("https://storefront-qa.mimercado.com/hogar-y-limpieza")
 
       scroll_until_element_exist('productListingItem', index)
      # page.execute_script "window.scrollBy(0,10000)"
       #@plp_met.get_products_list_total_by_index(index)
       @plp_met.click_prod_from_list(index)
-      @pdp_met.click_add_to_cart_btn
+
+      if @pdp_met.has_stock?
+        @pdp_met.click_add_to_cart_btn
+        count += 1
+      elsif @pdp_met.out_of_stock?
+        puts 'product out of stock'
+      end
+
       index += 1
+      puts count
     end
     @header_met.click_basket_button
     puts "Total products in cart: #{@cart_met.get_total_products}"
   end
+
+
 end

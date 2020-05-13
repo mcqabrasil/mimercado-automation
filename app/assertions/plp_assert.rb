@@ -18,7 +18,7 @@ class PLPAssertions
   end
 
   def assert_search_results_match(text)
-    if @plp.was_product_listed?
+    if @plp.was_product_listed? 
       index = 0
       until @plp.get_products_list_total_by_index(index).nil?
         puts index
@@ -30,10 +30,6 @@ class PLPAssertions
     else
       expect { raise "oops" }.to raise_error('There are products not matching text searched')
     end
-  end
-
-  def  assert_plp_content
-
   end
 
 end

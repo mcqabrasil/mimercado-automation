@@ -62,4 +62,8 @@ class HomeMethods < HomePage
   def click_close_cookies
     find(:dt, CLOSE_COOKIES_BTN).click
   end
+
+  def close_popup
+    find(:dt, CLOSE_POPUP_BTN).click
+  end
 end

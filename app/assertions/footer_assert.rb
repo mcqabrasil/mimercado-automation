@@ -10,50 +10,46 @@ class FooterAssertions
     @foo = FooterMethods.new
   end
 
-  def assert_content_visible
+  def assert_footer_components_visible
     content = "MiMercado\n© 2020 Derechos Reservados.\nPreguntas Frecuentes\nAviso de privacidad"
-    if @foo.footer_visible?
-      expect(@foo.get_content).to include(content)
+
+    puts "Footer div visibility: #{@foo.footer_visible?}"
+    puts "Logo visibility: #{@foo.logo_visible?}"
+    puts "Privacy link visibility: #{@foo.privacy_link_visible?}"
+    puts "Faq link visibility: #{@foo.faq_link_visible?}"
+    puts "Return Policy link visibility: #{@foo.return_policy_link_visible?}"
+    puts "Terms Condictions link visibility: #{@foo.tc_link_visible?}"
+    puts "Footer text displayed: #{@foo.get_content}"
+
+    if @foo.footer_visible? &&
+       @foo.privacy_link_visible? &&
+       @foo.faq_link_visible? &&
+       @foo.return_policy_link_visible? &&
+       @foo.tc_link_visible? &&
+       (@foo.get_content.include? "#{content}")
+      puts 'All footer components are visible'
     else
       expect { raise 'oops' }.to raise_error('One or more content is not present')
-    end
-    puts @foo.get_content.to_s
-  end
-
-  def assert_logo_visible
-    if @foo.logo_visible?
-      puts 'Logo is present'
-    else
-      expect { raise 'oops' }.to raise_error('Logo is not present')
-    end
-  end
-
-  def assert_privacy_visible
-    if @foo.privacy_link_visible?
-      puts 'Privacy link is present'
-    else
-      expect { raise 'oops' }.to raise_error('Privacy is not present')
     end
   end
 
   def assert_faq_url
-    url = "https://storefront-qa.mimercado.com/faq"
-    expect(page).to have_current_path("#{url}")
+    url = 'https://storefront-azure.mimercado.com/faq'
+    expect(page).to have_current_path(url.to_s)
   end
-  
+
   def assert_tc_url_path
-    url = "https://storefront-qa.mimercado.com/terms-and-conditions"
-    expect(page).to have_current_path("#{url}")
+    url = 'https://storefront-azure.mimercado.com/terms-and-conditions'
+    expect(page).to have_current_path(url.to_s)
   end
 
   def assert_returns_policy_url_path
-    url = "https://storefront-qa.mimercado.com/return-policy"
-    expect(page).to have_current_path("#{url}")
+    url = 'https://storefront-azure.mimercado.com/return-policy'
+    expect(page).to have_current_path(url.to_s)
   end
 
   def assert_privacy_url_path
-    url = "https://storefront-qa.mimercado.com/privacy-policy"
-    expect(page).to have_current_path("#{url}")
+    url = 'https://storefront-azure.mimercado.com/privacy-policy'
+    expect(page).to have_current_path(url.to_s)
   end
-  
 end

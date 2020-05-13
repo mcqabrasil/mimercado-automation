@@ -93,5 +93,13 @@ class PDPMethods < PDPPage
       has_selector?(:dt, PRODUCT_LK)
     end
   end
+
+  def has_stock?
+    has_selector?(:dt, 'availability', :text => 'Disponible')
+  end
+
+  def out_of_stock?
+    has_selector?(:dt, 'availability', :text => 'Agotado')
+  end
  
 end

@@ -35,12 +35,15 @@ describe 'Smoke Test', :aggregate_failures, :SMOKE do
     @pdp_as = PDPAssertions.new
 
     visit '/'
+    @home.close_popup
     @home.click_close_cookies
-    @utils.login(48991200113)
-    @utils.clear_cart
+  #  @utils.login(48991200113)
+  #  @utils.clear_cart
   end
 
-  before(:each) do
+  #verificar
+  before(:SMOKE_01_step1, :SMOKE_01_step8, :SMOKE_01_step9,
+         :SMOKE_01_step10, :SMOKE_01_step11, :SMOKE_01_step16, :SMOKE_01_step18) do
     visit '/'
   end
 
@@ -48,107 +51,107 @@ describe 'Smoke Test', :aggregate_failures, :SMOKE do
     page.instance_variable_set(:@touched, false)
   end
 
-  after(:all) do 
+  after(:all) do
     page.instance_variable_set(:@touched, true)
     page.reset!
   #  @utils.logoff
   end
 
-  context 'Check Home page, Header and Footer links', :SMOKE_01 do
+  context 'Check Home page, Mega-menu, Header and Footer links', :SMOKE_01 do
     it 'Header should be present with its components', :SMOKE_01_step1 do
-      @header_as.assert_header_visible
-      @header_as.assert_logo_visible
-      @header_as.assert_cart_price_visible
-      @header_as.assert_cart_icon_visible
-      @header_as.assert_search_visible
-      @header_as.assert_menu_btn_visible
+      @header_as.assert_header_compoments_visible
     end
 
     it 'Footer should be present with its components', :SMOKE_01_step2 do
-      @foo_as.assert_content_visible
+      page.execute_script "window.scrollBy(0,10000)"
+      @foo_as.assert_footer_components_visible
     end
 
-    it 'It should take user to the given PDP', :SMOKE_01_step3 do
-      @home_as.assert_products_links_goto_pdp
-    end
+    # it 'It should take user to the given PDP', :SMOKE_01_step3 do
+    #   @home_as.assert_products_links_goto_pdp
+    # end
 
-    it 'It should take user to the PLP', :SMOKE_01_step4 do
-      @home.click_see_all_products
-      @plp_as.assert_plp_url
-    end
+    # it 'It should take user to the PLP', :SMOKE_01_step4 do
+    #   @home.click_see_all_products
+    #   @plp_as.assert_plp_url
+    # end
 
-    it 'It should take user to the given Category page', :SMOKE_01_step5 do
-      @home_as.assert_category_links_goto_clp
-    end
+    # it 'It should take user to the given Category page', :SMOKE_01_step5 do
+    #   @home_as.assert_category_links_goto_clp
+    # end
 
-    it 'It should take user to the Product Listing page', :SMOKE_01_step6 do
-      @home.click_order_today_btn
-      sleep 2
-      @plp_as.assert_plp_url
-    end
+    # it 'It should take user to the Product Listing page', :SMOKE_01_step6 do
+    #   @home.click_order_today_btn
+    #   sleep 2
+    #   @plp_as.assert_plp_url
+    # end
 
-    it 'It should open Menu modal', :SMOKE_01_step7 do
-      @home.click_order_now_btn
-      sleep 2
-      @mm_as.assert_menu_opened
-      @mm.close_menu
-    end
+    # it 'It should open Menu modal', :SMOKE_01_step7 do
+    #   @home.click_order_now_btn
+    #   sleep 2
+    #   @mm_as.assert_menu_opened
+    #   @mm.close_menu
+    # end
 
     it 'User should be taken to the "Terminos y condiciones" page.', :SMOKE_01_step8 do
+      page.execute_script "window.scrollBy(0,10000)"
       @foo.click_tc_link
       @foo_as.assert_tc_url_path
     end
 
     it 'Click on the "Política de devoluciones" link.', :SMOKE_01_step9 do
+      page.execute_script "window.scrollBy(0,10000)"
       @foo.click_returns_policy_link
       @foo_as.assert_returns_policy_url_path
     end
 
     it 'It should take user to the "Aviso de privacidad" page.', :SMOKE_01_step10 do
+      page.execute_script "window.scrollBy(0,10000)"
       @foo.click_privacy_link
       @foo_as.assert_privacy_url_path
     end
 
     it 'User should be taken to the FAQ page', :SMOKE_01_step11 do
+      page.execute_script "window.scrollBy(0,10000)"
       @foo.click_faq_link
       @foo_as.assert_faq_url
-     end
-
-    it 'It should open the Menu modal', :SMOKE_01_step12 do
-      @header.click_menu
-      sleep 2
-      @mm_as.assert_menu_opened
-      @mm.close_menu
     end
 
-    it 'It should close the modal', :SMOKE_01_step13 do
-      @header.click_menu
-      @mm.close_menu
-      sleep 2
-      @mm_as.assert_menu_closed
-    end
+    # it 'It should open the Menu modal', :SMOKE_01_step12 do
+    #   @header.click_menu
+    #   sleep 2
+    #   @mm_as.assert_menu_opened
+    #   @mm.close_menu
+    # end
 
-    it 'It should take user to the given Menu sub-categories section', :SMOKE_01_step14 do
-      @header.click_menu
-      @mm_as.assert_main_category_goto_l1
-    end
+    # it 'It should close the modal', :SMOKE_01_step13 do
+    #   @header.click_menu
+    #   @mm.close_menu
+    #   sleep 2
+    #   @mm_as.assert_menu_closed
+    # end
 
-    it 'It should take user to the given category page', :SMOKE_01_step15 do
-      @mm_as.assert_l2_category_goto_clp
-    end
+    # it 'It should take user to the given Menu sub-categories section', :SMOKE_01_step14 do
+    #   @header.click_menu
+    #   @mm_as.assert_main_category_goto_l1
+    # end
+
+    # it 'It should take user to the given category page', :SMOKE_01_step15 do
+    #   @mm_as.assert_l2_category_goto_clp
+    # end
 
     it 'It should open Cart modal', :SMOKE_01_step16 do
       @header.click_cart_price
       @header_as.assert_cart_modal_opened
-      @cart.click_close_cart_modal
     end
 
-    it 'It should close Cart modal', :SMOKE_01_step17 do
-      @header.click_cart_price
-      @cart.click_close_cart_modal
-      sleep 2
-      @header_as.assert_cart_modal_closed
-    end
+    # it 'It should close Cart modal', :SMOKE_01_step17 do
+    #  # @cart.click_close_cart_modal
+    #   @header.click_cart_price
+    #   @cart.click_close_cart_modal
+    #   sleep 2
+    #   @header_as.assert_cart_modal_closed
+    # end
 
     it 'It should bring results for the user', :SMOKE_01_step18 do
       @utils.do_search('coca')
@@ -158,7 +161,7 @@ describe 'Smoke Test', :aggregate_failures, :SMOKE do
 
   context 'Check PDP', :SMOKE_02 do
     it 'User should see product description' do
-      visit("/p/LECHLECHFRAN/la-franja-leche-12-cartones-de-1-litro/-1796")
+      visit("1-2-3-aceite-vegetal-mediano-caja-con-12-botellas-de-1-litro.html")
       @pdp_as.assert_product_name_presence
     end
 
@@ -178,14 +181,14 @@ describe 'Smoke Test', :aggregate_failures, :SMOKE do
       puts @pdp.get_sku
       @header.click_cart_price
       @pdp_as.assert_prod_added_to_cart(sku)
-      @cart.click_close_cart_modal
+     # @cart.click_close_cart_modal
     end
   end
 
   context 'Check PLP', :SMOKE_03 do
     it 'It should be displayed followed by its product image, name, price, volume', :test do
       @plp.goto_plp
-      # missing volume/size
+      # missing volume/size - precisa do datatestid
       @plp_met.get_product_image(0)
       puts @plp_met.get_product_image(0)
     end

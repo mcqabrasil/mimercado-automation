@@ -29,11 +29,11 @@ class PlpMethods < PlpPage
     return nil
   end
 
-  def was_product_listed?
-    has_selector?(:dt, PRODUCT_LIST)
+  def was_product_listed? 
+    has_selector?(:dt, PRODUCT_LT)
   end
 
-  def get_product_price(index)
+  def get_product_price(index)B
     all(:css, PRODUCT_PRICE_LBL)[index].text
   end
 

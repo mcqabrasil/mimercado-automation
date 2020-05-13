@@ -12,7 +12,7 @@ class HeaderMethods < HeaderPage
   end
 
   def logo_visible?
-    has_css?(HEADER_LOGO)
+    has_xpath?(HEADER_LOGO)
   end
 
   def cart_price_visible?

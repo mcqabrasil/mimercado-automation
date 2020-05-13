@@ -8,7 +8,7 @@ class FooterPage
   FOOTER_DIV = '//*[@id="viewport"]/footer'
 
   # OTHERS
-  FOOTER_LOGO = '//*[@id="viewport"]/footer/div[1]/svg'
+  FOOTER_LOGO = '//*[@id="viewport"]/footer/div[1]/svg' # xpath
   FOOTER_CONTENT = 'bottomLinks'
 
   # LINKS
@@ -17,3 +17,4 @@ class FooterPage
   PRIVACY_LINK = 'privacyLink'
   FAQ_LINK = 'faqLink'
 end
+

@@ -6,7 +6,7 @@ class HeaderPage
 
   # Others
   HEADER_PATH = '//*[@id="viewport"]/div[1]/header' # CSS
-  HEADER_LOGO = '#viewport .header-logo' # CSS
+  HEADER_LOGO = '//*[@id="viewport"]/div[1]/header/div[1]/div/div[1]/div[2]/a' # xpath
 
   # LABELS / LINK
   CART_PRICE = '//*[@id="viewport"]/div[1]/header/div[1]/div/div[3]/div/div/span' # PROVISORIO
